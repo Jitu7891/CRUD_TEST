@@ -1,0 +1,53 @@
+<h1>User list</h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+  
+
+      <form class="d-flex" method="GET" action="/search">
+        <input class="form-control me-2" name="query" type="search" placeholder="Email/pincode/First_Name/Last_name" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      
+   
+  </div>
+</nav>
+
+<table style="width:100%" border="1" cellspacing="10">
+	<thead>
+		<th>First_Name</th>
+		<th>Last_name</th>
+		<th>Eamil</th>
+		<th>Phone</th>
+		<th>DOB</th>
+		<th>Address</th>
+		<th>pincode</th>
+		<th>Action</th>
+	</thead>
+	<div class="errors">
+		<% if flash[:phone_number_errors] %>
+			<% flash[:phone_number_errors].each do |error| %>
+				<p><%=error=%></p>
+			<%end%>
+		<%end%>
+		
+	</div>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.first_name %> </td>
+			
+			<td><%= user.last_name %> </td>
+			<td><%= user.email %> </td>
+			<td><%= user.phone_number %> </td>
+			<td><%= user.date_of_birth %> </td>
+			<td><%= user.address %> </td>
+			<td><%= user.pincode %> </td>
+			<td>
+				<%= link_to "Create User", new_user_path %>
+				<%= link_to "Edit", edit_user_path(user) %>
+				<%= link_to "Delete",user,method: :delete,data:{ confirm: "Are you sure want to Delete "}%>
+				
+			</td>
+		</tr>
+		<%end%>
+
+	</table>

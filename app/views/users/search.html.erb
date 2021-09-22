@@ -1,0 +1,38 @@
+<h1>User Infomation</h1>
+<h3>The Search Result is !</h3>
+
+<td><%= link_to "Back To Home! ", users_path %>
+<% if @users.empty? %>
+<p><h1>Not Found!!!</h1></p>
+<%else %>
+	
+<table style="width:100%" border="1" cellspacing="10">
+	<thead>
+		<th>First_Name</th>
+		<th>Last_name</th>
+		<th>Eamil</th>
+		<th>Phone</th>
+		<th>DOB</th>
+		<th>Address</th>
+		<th>pincode</th>
+		<!---<th>Action</th> --->
+	</thead>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= user.first_name %> </td>
+			
+			<td><%= user.last_name %> </td>
+			<td><%= user.email %> </td>
+			<td><%= user.phone_number %> </td>
+			<td><%= user.date_of_birth %> </td>
+			<td><%= user.address %> </td>
+			<td><%= user.pincode %> </td>
+			
+			
+				
+			</td>
+		</tr>
+		<%end%>
+		<%end%>
+
+	</table>

@@ -1,0 +1,73 @@
+<h1> User Information </h1>
+
+
+
+<h5 style="color: darkred;">Phone no. should be 10 otherwise it will not accept </h5>
+
+
+<%= form_with  model: @user do |f|%>
+
+
+<tr>
+
+<div >
+	<%= f.label :first_name %>
+	<%= f.text_field  :first_name %>
+	
+</div>
+</tr>
+
+
+	<div class>
+		<%= f.label :last_name  %>
+
+	<%= f.text_field  :last_name %>
+		
+	</div>
+
+
+
+	<div>
+	<%= f.label :email%>
+	<%= f.text_field :email %>	
+	</div>
+
+
+	<div>
+	<%= f.label :phone_number%> 
+	<%= f.text_field :phone_number %>	
+	
+	
+	</div>
+
+	
+<div>
+	<%= f.label :date_of_birth%>
+	<%= f.date_field :date_of_birth%>
+</div>
+
+	
+	<div>
+		<%= f.label :address%>
+	<%= f.text_field :address %>		
+	</div>
+
+
+	<div>
+		<%= f.label :pincode%>
+	<%= f.text_field :pincode %>
+	</div>
+
+	<div>
+		<%= f.submit "create"%>
+	</div>
+
+	
+
+	
+<%end%>
+
+
+
+
+
